@@ -7,8 +7,28 @@
 </head>
 
 <body>
-<div>
-    <h1></h1>
+<div data-ng-app="">
+    <input type="text" data-ng-model="message">
+    <h1>Root: {{ message }}</h1>
+
+    <div data-ng-controller="FirstCtrl">
+        <input type="text" data-ng-model="message">
+        <h1>First: {{ message }}</h1>
+        <h1>Root: {{ root.message }}</h1>
+        <button ng-click="resetMessage()">Reset</button>
+    </div>
+
+    <div data-ng-controller="SecondCtrl">
+        <input type="text" data-ng-model="message">
+        <h1>Second: {{ message }}</h1>
+
+        <div data-ng-controller="ThirdCtrl">
+            <input type="text" data-ng-model="message">
+            <h1>Third: {{ message }}</h1>
+            <button ng-click="resetMessage()">Reset</button>
+        </div>
+    </div>
+
 </div>
 
 <script type="text/javascript" src="lib/angular/angular.js"></script>
